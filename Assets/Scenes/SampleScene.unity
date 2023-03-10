@@ -217,7 +217,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1513118290}
   - component: {fileID: 1513118289}
-  m_Layer: 0
+  - component: {fileID: 1513118291}
+  m_Layer: 3
   m_Name: 4_Snow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,13 +285,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513118288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.71, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0.05, y: -0.03, z: 0}
   m_LocalScale: {x: 0.44351196, y: 0.49912915, z: 0.4706696}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1513118291
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513118288}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1065712, y: -8.469576}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 40, y: 20}
+    newSize: {x: 58.949173, y: 20}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 40.106575, y: 3.0608482}
+  m_EdgeRadius: 0
 --- !u!1 &1767079796
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +328,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1767079798}
   - component: {fileID: 1767079797}
+  - component: {fileID: 1767079801}
+  - component: {fileID: 1767079800}
+  - component: {fileID: 1767079799}
+  - component: {fileID: 1767079802}
   m_Layer: 0
   m_Name: penguin_atack_03
   m_TagString: Untagged
@@ -368,10 +399,76 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767079796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.69, y: -1.61, z: 0}
-  m_LocalScale: {x: 0.8641, y: 0.8641, z: 0.8641}
+  m_LocalPosition: {x: -5.74, y: -1.66, z: 0}
+  m_LocalScale: {x: 0.8071558, y: 0.8071558, z: 0.8071558}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1767079799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767079796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7f9061ac8a487abaa3b1feb3c772fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerEntity: {fileID: 1767079800}
+--- !u!114 &1767079800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767079796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bda95f869672f49bb5fca8b8f2e6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _faceRight: 1
+  _horizontalSpeed: 8
+  _jumpForce: 1000
+  _gravityScale: 5
+--- !u!50 &1767079801
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767079796}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!70 &1767079802
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767079796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04076348, y: -0.9626967}
+  m_Size: {x: 1.9633622, y: 2.6694932}
+  m_Direction: 0
