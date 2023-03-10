@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.Enums;
+using Core.Tools;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 namespace Player
@@ -8,12 +11,14 @@ namespace Player
     public class PlayerEntity : MonoBehaviour
     {
         [Header("HorizontalMovement")]
-        [SerializeField] private bool _faceRight;
+        [SerializeField] private Direction _direction;
         [SerializeField] private float _horizontalSpeed;
 
         [Header("Jump")] 
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _gravityScale;
+
+        [SerializeField] private DirectionalCameraPair _cameras;
         
         private Rigidbody2D _rigidbody;
         private CapsuleCollider2D _collider;
@@ -44,7 +49,7 @@ namespace Player
 
         private void SetDirection(float direction)
         {
-            if (_faceRight && direction < 0 || !_faceRight && direction > 0)
+            if (_direction == Direction.Right && direction < 0 || _direction == Direction.Left && direction > 0)
             {
                 Flip();    
             }
@@ -53,7 +58,11 @@ namespace Player
         private void Flip()
         {
             transform.Rotate(0, 180, 0);
-            _faceRight = !_faceRight;
+            _direction = _direction == Direction.Right ? Direction.Left : Direction.Right;
+            foreach(var pair in _cameras.DirectionalCameras)
+            {
+                pair.Value.enabled = pair.Key == _direction;
+            }
         }
     }
 }
