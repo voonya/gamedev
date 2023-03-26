@@ -998,8 +998,9 @@ GameObject:
   - component: {fileID: 1767079800}
   - component: {fileID: 1767079799}
   - component: {fileID: 1767079802}
+  - component: {fileID: 1767079803}
   m_Layer: 0
-  m_Name: penguin_atack_03
+  m_Name: Penguin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,7 +1047,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 3aa8bb72e976c5c4bbe8f41513c4df8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901639f1dddd7b04aa3c943786d274d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1097,6 +1098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bda95f869672f49bb5fca8b8f2e6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 1767079803}
   _direction: 0
   _horizontalSpeed: 3
   _jumpForce: 1000
@@ -1141,6 +1143,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.04076348, y: -0.9626967}
   m_Size: {x: 1.9633622, y: 2.6694932}
   m_Direction: 0
+--- !u!95 &1767079803
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767079796}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec2f628a74a0b6c4b9ffc0fa363d955d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1841339608
 GameObject:
   m_ObjectHideFlags: 0
