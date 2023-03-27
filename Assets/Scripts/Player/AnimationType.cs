@@ -6,6 +6,7 @@
         Walk = 1,
         Run = 2,
         Jump = 3,
-        Attack = 4,
+        Fall = 4,
+        Attack = 5,
     }
 }

@@ -23,13 +23,19 @@ namespace Player
 
         [SerializeField] private DirectionalCameraPair _cameras;
         
+        [Header("Attack")]
+        [SerializeField] private float _timeAttack;
+        private float _remainingTimeAttack;
+        public bool AttackActive { get; private set; }
+        private Vector2 Velocity => _rigidbody.velocity;
+        public bool JumpActive { get { return Velocity.y > 0; }}
+        public bool FallActive { get { return Velocity.y < 0; } }
+        
         private Rigidbody2D _rigidbody;
         private CapsuleCollider2D _collider;
 
         private Vector2 _movement;
         private AnimationType _currentAnimationType;
-
-        private bool _isAttack;
         
         void Start()
         {
@@ -39,35 +45,33 @@ namespace Player
         private void Update()
         {
             UpdateAnimations();
+            UpdateAtack();
         }
 
         private void UpdateAnimations()
         {
             PlayAnimation(AnimationType.Idle, true);
             PlayAnimation(AnimationType.Walk, _movement.magnitude > 0);
-            PlayAnimation(AnimationType.Jump, _rigidbody.velocity.y != 0);
-            //PlayAnimation(AnimationType.Attack, _isAttack);
+            PlayAnimation(AnimationType.Jump, JumpActive);
+            PlayAnimation(AnimationType.Fall, FallActive);
+            PlayAnimation(AnimationType.Attack, AttackActive);
         }
 
         public void Jump()
         {
-            if (_rigidbody.velocity.y != 0)
+            if (JumpActive || FallActive)
             {
                 return;
             }
-            
+
             _rigidbody.AddForce(Vector2.up * _jumpForce);
             _rigidbody.gravityScale = _gravityScale;
         }
 
         public void Attack()
         {
-           PlayAnimation(AnimationType.Attack, true);
-        }
-
-        public void ResetAtack()
-        {
-            _isAttack = false;
+            AttackActive = true;
+            _remainingTimeAttack = _timeAttack;
         }
 
         public void MoveHorizontally(float direction)
@@ -119,6 +123,17 @@ namespace Player
         private void PlayAnimation(AnimationType animationType)
         {
             _animator.SetInteger(nameof(AnimationType), (int)animationType);
+        }
+        
+        private void UpdateAtack()
+        {
+            if (AttackActive)
+            {
+                _remainingTimeAttack -= Time.deltaTime;
+
+                if(_remainingTimeAttack <= 0)
+                    AttackActive = false;
+            }
         }
     }
 }
