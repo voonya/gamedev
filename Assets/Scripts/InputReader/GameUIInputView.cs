@@ -1,20 +1,17 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Player
 {
     public class GameUIInputView: MonoBehaviour, IEntityInputSource
     {
+        public bool Jump { get; private set; }
+        public bool Attack { get; private set; }
+        
         [SerializeField] private Joystick _joystick;
         [SerializeField] private Button _jumpButton;
         [SerializeField] private Button _attackButton;
         
-        public float HorizontalDirection => _joystick.Horizontal;
-    
-        public bool Jump { get; private set; }
-        public bool Attack { get; private set; }
-
         private void Awake()
         {
             _jumpButton.onClick.AddListener(() => Jump = true);
@@ -32,5 +29,7 @@ namespace Player
             Jump = false;
             Attack = false;
         }
+        
+        public float HorizontalDirection => _joystick.Horizontal;
     }
 }

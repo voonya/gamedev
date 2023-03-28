@@ -789,14 +789,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layers:
-  - <Transform>k__BackingField: {fileID: 1841339609}
-    <Speed>k__BackingField: 0.5
   - <Transform>k__BackingField: {fileID: 1547457665}
-    <Speed>k__BackingField: 0.5
+    <Speed>k__BackingField: 0.1
   - <Transform>k__BackingField: {fileID: 899035210}
-    <Speed>k__BackingField: 0.6
+    <Speed>k__BackingField: 0.3
   - <Transform>k__BackingField: {fileID: 597085368}
-    <Speed>k__BackingField: 0.8
+    <Speed>k__BackingField: 0.2
   - <Transform>k__BackingField: {fileID: 1308595778}
     <Speed>k__BackingField: 0
   _target: {fileID: 1767079798}
@@ -2210,15 +2208,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bda95f869672f49bb5fca8b8f2e6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1767079803}
-  _direction: 0
-  _horizontalSpeed: 5
-  _jumpForce: 1000
-  _gravityScale: 5
+  _animationController:
+    _animator: {fileID: 1767079803}
+  _directionalMovementData:
+    <Direction>k__BackingField: 0
+    <HorizontalSpeed>k__BackingField: 5
+  _jumperData:
+    JumpForce: 1000
+    GravityScale: 5
   _cameras:
     _rightCamera: {fileID: 1060798645}
     _leftCamera: {fileID: 146660309}
-  _timeAttack: 0.2
+  _attackerData:
+    TimeAttack: 0.2
 --- !u!50 &1767079801
 Rigidbody2D:
   serializedVersion: 4
@@ -2652,7 +2654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872264319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2336, y: 0.28, z: 0}
+  m_LocalPosition: {x: -0.26, y: 0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
